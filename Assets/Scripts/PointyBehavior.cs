@@ -6,6 +6,8 @@ public class PointyBehavior : MonoBehaviour
 {
     public float maximumDistance = 5;
 
+    private Vector3 _stretch = new Vector3();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,10 @@ public class PointyBehavior : MonoBehaviour
             point = sheepPos + diff;
         }
 
-        transform.position = point;
+        // Set up the line renderer's vertices.
+        LineRenderer rend = GetComponent<LineRenderer>();
+        rend.SetPositions(new Vector3[]{ sheepPos, point });
+
+        _stretch = diff;
     }
 }
