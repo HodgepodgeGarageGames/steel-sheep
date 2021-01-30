@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class BoundaryExtender : MonoBehaviour
 {
+    [Tooltip("How far to stretch boundary boxes in the vertical dimension")]
+    public float multiplier = 200;
+    [Tooltip("What color to set all boundary items to (for debugging)")]
+    public Color color = new Color(0.5f, 1f, 0.5f);
+    public bool setColor = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +22,12 @@ public class BoundaryExtender : MonoBehaviour
                 Vector3 newSize = collide.size;
                 newSize.y = 200;
                 collide.size = newSize;
+            }
+
+            if (setColor)
+            {
+                Renderer rend = b.GetComponent<Renderer>();
+                rend.material.color = color;
             }
         }
     }
