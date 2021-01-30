@@ -20,7 +20,7 @@ public class SheepEffects : MonoBehaviour
         TurnOffElectricity();
 
         sheep_body.material.SetFloat("_Metallic", 0.7f);
-        sheep_body.material.SetColor("_EmissionColor", new Color(0.1f, 0.1f, 0.1f));
+        sheep_body.material.SetColor("_EmissionColor", new Color(0.21f, 0.21f, 0.21f));
 
         sparker = StartCoroutine(SPARK());
     }
