@@ -152,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705543476615225762}
   - component: {fileID: 1228957176}
+  - component: {fileID: 326359245798774215}
   - component: {fileID: 705543476615225765}
   - component: {fileID: 705543476615225764}
   - component: {fileID: 705543476615225767}
@@ -192,6 +193,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickStrength: 12
+--- !u!114 &326359245798774215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705543476615225769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4198335b5cf494c8c8e63ae5a694c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 200
+  color: {r: 0.5, g: 1, b: 0.5, a: 1}
+  setColor: 1
 --- !u!33 &705543476615225765
 MeshFilter:
   m_ObjectHideFlags: 0
