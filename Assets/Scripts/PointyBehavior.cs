@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class PointyBehavior : MonoBehaviour
 {
-    public float maximumDistance = 5;
+    [Tooltip("The maximum line length, in units")]
+    public float maximumLength = 5;
 
-    private Vector3 _stretch = new Vector3();
+    private Transform _sheep;
+    private SheepScript _sheepBehav;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _sheep = transform.parent;
+        _sheepBehav = _sheep.GetComponent<SheepScript>();
     }
 
-    void Release()
+    // "kick" is the difference between where the mouse-pulled point of the line is,
+    // and the sheep's origin.
+    void Release(Vector3 kick)
     {
         gameObject.SetActive(false);
+        // remove any y component of the kick (kick should be flat).
+        kick.y = 0;
+        // kick is reversed direction (pointing toward mouse): fix it
+        kick = -kick;
+        // scale kick by maximumDistance: guarantees a magnitude between zero and one.
+        kick /= maximumLength;
+
+        _sheepBehav.Kick(kick);
     }
 
     // Update is called once per frame
@@ -27,7 +40,7 @@ public class PointyBehavior : MonoBehaviour
         // We want to find the point where the ray hits y = 0 (or not 0, but same y as sheep);
         float runOverRiseX = ray.direction.y / ray.direction.x;
         float runOverRiseZ = ray.direction.y / ray.direction.z;
-        Vector3 sheepPos = GameObject.Find("Sheep").transform.position;
+        Vector3 sheepPos = _sheep.transform.position;
         float rise = ray.origin.y - sheepPos.y;
         point.x = ray.origin.x - rise / runOverRiseX;
         point.z = ray.origin.z - rise / runOverRiseZ;
@@ -37,9 +50,9 @@ public class PointyBehavior : MonoBehaviour
         // Find the distance between our point and the sheep, and clamp it so we're never too far.
         Vector3 diff = point - sheepPos;
         float magnitude = diff.magnitude;
-        if (magnitude > maximumDistance)
+        if (magnitude > maximumLength)
         {
-            diff *= maximumDistance / magnitude;
+            diff *= maximumLength / magnitude;
             point = sheepPos + diff;
         }
 
@@ -47,11 +60,9 @@ public class PointyBehavior : MonoBehaviour
         LineRenderer rend = GetComponent<LineRenderer>();
         rend.SetPositions(new Vector3[]{ sheepPos, point });
 
-        _stretch = diff;
-
         if (Input.GetMouseButtonUp(0))
         {
-            Release();
+            Release(diff);
         }
     }
 }

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class SheepScript : MonoBehaviour
 {
+    [Tooltip("The velocity, in units/sec, from a kick of magnitude one")]
+    public float kickStrength = 5;
+    
     private Transform pointy;
+    private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +20,11 @@ public class SheepScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Kick(Vector3 kick)
+    {
+        GetComponent<Rigidbody>().velocity = kick * kickStrength;
     }
 
     void OnMouseDown()
