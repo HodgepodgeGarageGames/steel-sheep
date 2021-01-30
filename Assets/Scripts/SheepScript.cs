@@ -19,16 +19,25 @@ public class SheepScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Detect mouse down on/near sheep (including through obstructions)
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Collider myCollider = GetComponent<SphereCollider>();
+            
+            foreach (RaycastHit hit in Physics.RaycastAll(ray))
+            {
+                if (hit.collider == myCollider)
+                {
+                    pointy.gameObject.SetActive(true);
+                }
+            }
+        }
         
     }
 
     public void Kick(Vector3 kick)
     {
         GetComponent<Rigidbody>().velocity = kick * kickStrength;
-    }
-
-    void OnMouseDown()
-    {
-        pointy.gameObject.SetActive(true);
     }
 }
