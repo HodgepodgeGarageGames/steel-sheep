@@ -14,6 +14,11 @@ public class PointyBehavior : MonoBehaviour
         
     }
 
+    void Release()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -43,5 +48,10 @@ public class PointyBehavior : MonoBehaviour
         rend.SetPositions(new Vector3[]{ sheepPos, point });
 
         _stretch = diff;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Release();
+        }
     }
 }
