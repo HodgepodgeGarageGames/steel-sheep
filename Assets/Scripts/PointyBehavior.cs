@@ -18,8 +18,11 @@ public class PointyBehavior : MonoBehaviour
         // We want to find the point where the ray hits y = 0;
         float runOverRiseX = ray.direction.y / ray.direction.x;
         float runOverRiseZ = ray.direction.y / ray.direction.z;
-        point.x = ray.origin.x - ray.origin.y / runOverRiseX;
-        point.z = ray.origin.z - ray.origin.y / runOverRiseZ;
+        float sheepY = GameObject.Find("Sheep").transform.position.y;
+        float rise = ray.origin.y - sheepY;
+        point.x = ray.origin.x - rise / runOverRiseX;
+        point.z = ray.origin.z - rise / runOverRiseZ;
+        point.y = sheepY;
         transform.position = point;
     }
 }
