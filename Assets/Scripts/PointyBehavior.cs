@@ -13,10 +13,13 @@ public class PointyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        point = Camera.main.transform.TransformVector(Input.mousePosition);
-        point.z = point.y;
-        point.y = 0;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 point = new Vector3(0, 0, 0);
+        // We want to find the point where the ray hits y = 0;
+        float runOverRiseX = ray.direction.y / ray.direction.x;
+        float runOverRiseZ = ray.direction.y / ray.direction.z;
+        point.x = ray.origin.x - ray.origin.y / runOverRiseX;
+        point.z = ray.origin.z - ray.origin.y / runOverRiseZ;
         transform.position = point;
     }
 }
