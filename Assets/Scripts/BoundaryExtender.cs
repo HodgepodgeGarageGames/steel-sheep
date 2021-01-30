@@ -31,10 +31,4 @@ public class BoundaryExtender : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
