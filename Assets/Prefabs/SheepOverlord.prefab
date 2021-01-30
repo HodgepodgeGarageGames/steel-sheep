@@ -1561,6 +1561,7 @@ GameObject:
   - component: {fileID: 3356413848731959297}
   - component: {fileID: 3356413848731959303}
   - component: {fileID: 3356413848731959296}
+  - component: {fileID: 4994078696369108841}
   m_Layer: 8
   m_Name: CenterRoot
   m_TagString: Untagged
@@ -1615,6 +1616,28 @@ MonoBehaviour:
   hpower: 50
   vpower: 5
   ball: {fileID: 3927031221167400511}
+--- !u!114 &4994078696369108841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356413848731959302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181362165e556c545abd8d7cd1b3085c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  electric_radius: 0.015
+  spark_lifetime: 0.3
+  spark_scale: 0.01
+  spark_shaky_degrees: 0
+  spark_frequency: 2
+  spark_prefabs:
+  - {fileID: 226039719542047307, guid: ab067a26c49e3684e9380026f3700360, type: 3}
+  - {fileID: 1763590909110309670, guid: 78af595cc8cb9aa4698ea7d375922859, type: 3}
+  - {fileID: 142803791507791962, guid: b177fc94a5b9fd94ebaac5a2582ec8f0, type: 3}
+  sheep_body: {fileID: 4050389729985293118}
 --- !u!1 &3437530461551918788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +3305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: f6ac89109972f594e900c8d6862697df, type: 3}
+  - {fileID: 2100000, guid: e99682ddfc1a0ae48b41e5469c86577e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
