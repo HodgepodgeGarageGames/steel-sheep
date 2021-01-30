@@ -16,7 +16,7 @@ public class SheepFollowsBall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //rb.MovePosition(ball.position + (Vector3.up * vertical_offset));
 
