@@ -12,6 +12,21 @@ public class CameraFollowSheep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (target == null)
+        {
+            // We weren't assigned a sheep. Try and find one among the root objects.
+            GameObject[] rootObjs = gameObject.scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjs)
+            {
+                if (obj.CompareTag("Player"))
+                {
+                    target = obj.transform.GetChild(1);
+                    break;
+                }
+            }
+        }
+
+        // not an else, because situation may have been changed above
         if (target != null)
         {
             difference = transform.position - target.position;
