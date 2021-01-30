@@ -15,12 +15,30 @@ public class SheepEffects : MonoBehaviour
 
     private Coroutine sparker = null;
 
+    /*bool test = false;
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            if (test)
+            {
+                test = false;
+                TurnOffElectricity();
+            }
+            else
+            {
+                test = true;
+                TurnOnElectricity();
+            }
+        }
+    }*/
+
     public void TurnOnElectricity()
     {
         TurnOffElectricity();
 
         sheep_body.material.SetFloat("_Metallic", 0.7f);
-        sheep_body.material.SetColor("_EmissionColor", new Color(0.21f, 0.21f, 0.21f));
+        sheep_body.material.SetColor("_EmissionColor", new Color(0.32f, 0.32f, 0.32f));
 
         sparker = StartCoroutine(SPARK());
     }
