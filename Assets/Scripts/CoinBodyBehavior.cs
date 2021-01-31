@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CoinBodyBehavior : MonoBehaviour
 {
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        transform.GetComponentInParent<CoinBehavior>().Collected();
+        if (other.CompareTag("Player"))
+        {
+            transform.GetComponentInParent<CoinBehavior>().Collected();
+        }
     }
 }
