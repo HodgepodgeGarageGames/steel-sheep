@@ -19,4 +19,9 @@ public class CoinBehavior : MonoBehaviour
         float rotationAmount = rotationSpeed * Time.fixedDeltaTime;
         coinBody.Rotate(new Vector3(rotationAmount, 0, 0));
     }
+
+    public void Collected()
+    {
+        gameObject.SetActive(false);
+    }
 }
