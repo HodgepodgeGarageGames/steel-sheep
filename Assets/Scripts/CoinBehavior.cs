@@ -6,8 +6,10 @@ public class CoinBehavior : MonoBehaviour
 {
     public Transform coinBody;
     [Tooltip("rotation speed in degrees per second")]
-    public float rotationSpeed;
-    
+    public float rotationSpeed = 45;
+    [Tooltip("how quickly the coin moves toward a magnetized sheep")]
+    public float magnetSpeed = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
