@@ -43,4 +43,9 @@ public class SheepScript : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = kick * kickStrength;
     }
+
+    public void StartHopping()
+    {
+
+    }
 }

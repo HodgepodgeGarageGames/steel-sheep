@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SheepUtils;
 
 public class WinAreaBehavior : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class WinAreaBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayNextScene();
+            theSheepProxy.GetComponent<SheepScript>().StartHopping();
+            //PlayNextScene();
         }
     }
 
