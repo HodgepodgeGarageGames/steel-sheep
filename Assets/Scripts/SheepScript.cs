@@ -14,6 +14,9 @@ public class SheepScript : MonoBehaviour
     void Start()
     {
         pointy = transform.GetChild(0);
+
+        // Avoid physics collision with coins
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("sheepball"), LayerMask.NameToLayer("Coin"));
     }
 
     // Update is called once per frame
