@@ -13,7 +13,6 @@ public class CoinMagnetosphereBehavior : MonoBehaviour
         _parentParams = GetComponentInParent<CoinBehavior>();
         // Get the vertical thrust offset to remove, from the coin body cylinder's offset relative to the parent.
         _coinOffsetFromOrigin = transform.parent.GetComponentInChildren<CoinBodyBehavior>().transform.localPosition;
-        Debug.Log(_coinOffsetFromOrigin);
     }
 
     // Update is called once per frame
