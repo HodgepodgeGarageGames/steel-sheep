@@ -9,6 +9,7 @@ public class CoinBodyBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponentInParent<AudioSource>().Play();
             transform.GetComponentInParent<CoinBehavior>().Collected();
         }
     }
