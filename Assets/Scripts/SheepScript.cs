@@ -6,9 +6,16 @@ public class SheepScript : MonoBehaviour
 {
     [Tooltip("The velocity, in units/sec, from a kick of magnitude one")]
     public float kickStrength = 5;
+
+    [Header("Hopping (at level win)")]
+    [Tooltip("How many seconds to wait between sheep hops")]
+    public float hopWait = 2;
+    [Tooltip("Maximum vertical sheep velocity magnitude to allow a hop (should be low, indicating sheep is at ground)")]
+    public float hopRestMagnitude = 0.01f;
+    [Tooltip("Upward hop thrust")]
+    public float hopStrength = 8;
     
     private Transform pointy;
-    private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +53,30 @@ public class SheepScript : MonoBehaviour
 
     public void StartHopping()
     {
+        //Debug.Log("StartHopping");
+        StartCoroutine("DoHop");
+    }
 
+    public void Hop()
+    {
+        //Debug.Log("Hop");
+        Rigidbody body = GetComponent<Rigidbody>();
+
+        if (Mathf.Abs(body.velocity.y) < hopRestMagnitude)
+        {
+            //Debug.Log("HopYes");
+            Vector3 newVeloc = body.velocity;
+            newVeloc.y = hopStrength;
+            body.velocity = newVeloc;
+        }
+    }
+
+    IEnumerator DoHop()
+    {
+        for (;;) // ever
+        {
+            yield return new WaitForSeconds(hopWait);
+            Hop();
+        }
     }
 }
