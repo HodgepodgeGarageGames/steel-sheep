@@ -1629,11 +1629,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181362165e556c545abd8d7cd1b3085c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electric_radius: 0.015
+  electric_radius: 0.8
   spark_lifetime: 0.3
-  spark_scale: 0.01
+  spark_scale: 0.5
   spark_shaky_degrees: 0
-  spark_frequency: 2
+  spark_frequency: 10
   spark_prefabs:
   - {fileID: 226039719542047307, guid: ab067a26c49e3684e9380026f3700360, type: 3}
   - {fileID: 1763590909110309670, guid: 78af595cc8cb9aa4698ea7d375922859, type: 3}

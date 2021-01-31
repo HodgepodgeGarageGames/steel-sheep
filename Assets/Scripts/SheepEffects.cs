@@ -58,9 +58,14 @@ public class SheepEffects : MonoBehaviour
     {
         while (true)
         {
-            sparklet spark = Instantiate(spark_prefabs[Random.Range(0, spark_prefabs.Length)], transform).GetComponent<sparklet>();
+            sparklet spark = Instantiate(spark_prefabs[Random.Range(0, spark_prefabs.Length)]).GetComponent<sparklet>();
 
-            spark.go(electric_radius, spark_lifetime, spark_scale, spark_shaky_degrees);
+            spark.transform.position = transform.position;
+
+            spark.transform.position += new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * electric_radius;
+            spark.transform.LookAt(transform);
+
+            spark.go(spark_lifetime, spark_scale, spark_shaky_degrees);
 
             yield return new WaitForSeconds(1/spark_frequency);
         }

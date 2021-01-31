@@ -20,7 +20,7 @@ public class ArrowParticle : MonoBehaviour
 
     private IEnumerator GO(Vector3 s)
     {
-        transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0.1f);
+        transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 5.0f), 0.1f);
         transform.localScale = new Vector3(1.0f / (s.y * 10.0f), 1.0f / (s.x * 10.0f), -0.1f);
 
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime)

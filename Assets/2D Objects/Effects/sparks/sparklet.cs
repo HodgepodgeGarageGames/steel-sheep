@@ -6,16 +6,14 @@ public class sparklet : MonoBehaviour
 {
     Coroutine co = null;
 
-    public void go(float radius, float lifetime, float scale, float shaky)
+    public void go(float lifetime, float scale, float shaky)
     {
         if (co == null)
-            co = StartCoroutine(GO(radius, lifetime, scale, shaky));
+            co = StartCoroutine(GO(lifetime, scale, shaky));
     }
 
-    private IEnumerator GO(float radius, float lifetime, float scale, float shaky)
+    private IEnumerator GO(float lifetime, float scale, float shaky)
     {
-        transform.localPosition = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized * radius;
-        transform.LookAt(transform.parent);
         transform.localScale = new Vector3(scale, scale, 1.0f);
 
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Random.Range(-180.0f, 180.0f));
