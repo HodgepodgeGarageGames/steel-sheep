@@ -35,4 +35,10 @@ public class CameraFollowSheep : MonoBehaviour
         newPos.z = target.position.z + difference.z;
         transform.SetPositionAndRotation(newPos, transform.rotation);
     }
+
+    public void Won()
+    {
+        Transform won = transform.Find("You Won");
+        won.gameObject.SetActive(true);
+    }
 }

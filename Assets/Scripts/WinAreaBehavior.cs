@@ -36,6 +36,7 @@ public class WinAreaBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Camera.main.GetComponent<CameraFollowSheep>().Won();
             theSheepProxy.GetComponent<SheepScript>().StartHopping();
             PlayVictorySound();
             StartCoroutine("DelayedNextScene");
