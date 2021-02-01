@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickStrength: 25
-  hopWait: 3
+  hopWait: 1
   hopRestMagnitude: 0.01
   hopStrength: 10
 --- !u!114 &3672940685189535237

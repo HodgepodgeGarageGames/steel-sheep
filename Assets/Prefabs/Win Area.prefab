@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bb30c10e1c23340bd5e066411259b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelWait: 8
+  nextLevelWait: 6
 --- !u!33 &422563571339214158
 MeshFilter:
   m_ObjectHideFlags: 0
