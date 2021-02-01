@@ -21,4 +21,11 @@ class SheepUtils
             return null;
         }
     }
+
+    // Summary:
+    //  Load the next level (by build index from build settings).
+    public static void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

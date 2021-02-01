@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using static SheepUtils;
 
 public class Bumper : MonoBehaviour
 {
     public Transform bumperBlocker;
+    public VideoPlayer video;
+
     [Tooltip("How many seconds to take fading in/out")]
     public float fadeTime = 2;
     [Tooltip("How long to display the bumper before fading back out")]
@@ -71,8 +75,20 @@ public class Bumper : MonoBehaviour
         }
         SetOpacity(opacity);
 
-        // LOAD NEXT SCENE!
-        Debug.Log("Out");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine("PlayMovie");
+    }
+
+    IEnumerator PlayMovie()
+    {
+        Debug.Log("PlayMovie");
+        video.Play();
+
+        while (!video.isPlaying)
+            yield return new WaitForFixedUpdate();
+
+        while (video.isPlaying)
+            yield return new WaitForFixedUpdate();
+
+        SheepUtils.NextLevel();
     }
 }

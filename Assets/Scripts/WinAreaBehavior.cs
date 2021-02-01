@@ -42,14 +42,9 @@ public class WinAreaBehavior : MonoBehaviour
         }
     }
 
-    void PlayNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
     IEnumerator DelayedNextScene()
     {
         yield return new WaitForSeconds(nextLevelWait);
-        PlayNextScene();
+        SheepUtils.NextLevel();
     }
 }
