@@ -83,8 +83,12 @@ public class Bumper : MonoBehaviour
         Debug.Log("PlayMovie");
         video.Play();
 
-        while (!video.isPlaying)
+        float waitForVideoPlay = 2;
+        while (!video.isPlaying && waitForVideoPlay > 0)
+        {
             yield return new WaitForFixedUpdate();
+            waitForVideoPlay -= Time.fixedDeltaTime;
+        }
 
         while (video.isPlaying)
         {
