@@ -73,6 +73,6 @@ public class Bumper : MonoBehaviour
 
         // LOAD NEXT SCENE!
         Debug.Log("Out");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
