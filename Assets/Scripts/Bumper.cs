@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -81,6 +82,8 @@ public class Bumper : MonoBehaviour
     IEnumerator PlayMovie()
     {
         Debug.Log("PlayMovie");
+        video.url = Path.Combine(Application.streamingAssetsPath, "Sheep_Intro_fin.mp4");
+        video.Prepare();
         video.Play();
 
         float waitForVideoPlay = 2;
