@@ -9,6 +9,7 @@ public class CameraFollowSheep : MonoBehaviour
     public Transform target;
 
     private Vector3 difference; // the difference to maintain relative to target.
+    private bool won = false;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class CameraFollowSheep : MonoBehaviour
         if (target != null)
         {
             difference = transform.position - target.position;
-            difference.y = 0;
+            //difference.y = 0;
         }
     }
 
@@ -32,12 +33,15 @@ public class CameraFollowSheep : MonoBehaviour
     {
         Vector3 newPos = transform.position;
         newPos.x = target.position.x + difference.x;
+        if (!won)
+            newPos.y = target.position.y + difference.y;
         newPos.z = target.position.z + difference.z;
         transform.SetPositionAndRotation(newPos, transform.rotation);
     }
 
     public void Won()
     {
+        this.won = true;
         Transform won = transform.Find("You Won");
         won.gameObject.SetActive(true);
     }
