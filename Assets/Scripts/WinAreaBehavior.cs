@@ -9,6 +9,8 @@ public class WinAreaBehavior : MonoBehaviour
     [Tooltip("How long to wait (sheep a-hopping) before loading next level")]
     public float nextLevelWait = 20;
 
+    private bool soundPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,21 @@ public class WinAreaBehavior : MonoBehaviour
         
     }
 
+    void PlayVictorySound()
+    {
+        if (!soundPlayed)
+        {
+            GetComponent<AudioSource>().Play();
+            soundPlayed = true;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             theSheepProxy.GetComponent<SheepScript>().StartHopping();
+            PlayVictorySound();
             StartCoroutine("DelayedNextScene");
         }
     }
