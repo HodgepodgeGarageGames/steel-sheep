@@ -26,6 +26,13 @@ class SheepUtils
     //  Load the next level (by build index from build settings).
     public static void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int curIndex, newIndex;
+        curIndex = SceneManager.GetActiveScene().buildIndex;
+        newIndex = curIndex + 1;
+
+        if (newIndex >= SceneManager.sceneCountInBuildSettings)
+            newIndex = 0;
+
+        SceneManager.LoadScene(newIndex);
     }
 }
