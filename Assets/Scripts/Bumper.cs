@@ -87,7 +87,12 @@ public class Bumper : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
         while (video.isPlaying)
+        {
+            if (Input.GetMouseButtonDown(0))
+                break;
             yield return new WaitForFixedUpdate();
+
+        }
 
         SheepUtils.NextLevel();
     }
