@@ -17,6 +17,7 @@ public class Bumper : MonoBehaviour
     public float displayTime = 3;
 
     private Material material;
+    private bool mouseButtonDown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class Bumper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // GetMouseButtonDown is only reliable within Update message
+        mouseButtonDown = Input.GetMouseButtonDown(0);
     }
 
     void SetOpacity(float opacity)
@@ -95,7 +97,7 @@ public class Bumper : MonoBehaviour
 
         while (video.isPlaying)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (mouseButtonDown)
                 break;
             yield return new WaitForFixedUpdate();
 
